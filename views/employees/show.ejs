@@ -2,15 +2,15 @@
 
 <h1><%=employee.name%></h1>
 <img src="<%=employee.img%>" alt="employee">
-<p> <%=employee[i].position%> </p>
-<p> <%=employee[i].age%> </p>
+<p> <%=employee.position%> </p>
+<p> <%=employee.age%> </p>
 <div class="options">
     <button>
-        <a href="/employee/<%=employee._id%>/edit">Edit Pokemon</a>
+        <a href="/employees/<%=employee._id%>/edit">Edit Pokemon</a>
     </button>
 
     <form method="POST"
-        action="/employee/<%= employee._id %>?_method=DELETE">
+        action="/employees/<%= employee._id %>?_method=DELETE">
         <input type="submit" value="remove employee">
     </form>
 </div>
