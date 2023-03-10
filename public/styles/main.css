@@ -1,6 +1,26 @@
 body{
-    background-color:palegreen;
+    background-color:#C6D8D3;
     margin:0px;
     padding: 0px;
 }
 
+
+h1{
+    text-align: center;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    margin: 5px;
+    text-decoration: underline;
+    color: black;
+ 
+}
+
+footer{
+    text-align: center;
+}
