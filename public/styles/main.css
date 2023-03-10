@@ -9,6 +9,11 @@ p{
     font-size: 1.5em;
 }
 
+.limit img {
+    max-width: 5em;
+    max-height: 5em;
+}
+
 .card{
     text-align: center;
 }

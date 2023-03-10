@@ -58,7 +58,7 @@ router.get('/:id/edit',  async (req, res, next) => {
     }
 })
 
-router.post('/addEmployee', async(req, res, next) => {
+router.post('/new', async(req, res, next) => {
     try {
         const newEmployee = await Employees.create(req.body);
         res.redirect('/employees');
