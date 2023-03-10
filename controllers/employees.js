@@ -1,10 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const {Employees} = require('../models')
+const employeeSeed = require('../models/seed.js')
+
 
 router.get('/', (req, res, next) => {
     try {
-        res.render('employees/index');
+        const myEmployee = Employees.find({})
+        context = {
+            employee: myEmployee
+        }
+        res.render('employees/index', context);
+    } catch (err) {
+        console.log(err);
+        return next();
+    }
+})
+
+router.get('/seed', async (req, res, next) => {
+    try {
+        const removeAll = await Employees.deleteMany({});
+        const seedAll = await Employees.insertMany(employeeSeed);
+        res.redirect('/')
     } catch (err) {
         console.log(err);
         return next();
