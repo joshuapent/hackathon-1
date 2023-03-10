@@ -1,17 +1,18 @@
 <%- include('../partial/header', {styleSheet: '/styles/main.css' }) %>
-
-<h1><%=employee.name%></h1>
-<img src="<%=employee.img%>" alt="employee">
-<p> <%=employee.position%> </p>
-<p> <%=employee.age%> </p>
-<div class="options">
-    <button>
-        <a href="/employees/<%=employee._id%>/edit">Edit Pokemon</a>
-    </button>
+<div class="show">
+    <h1><%=employee.name%></h1>
+    <img src="<%=employee.img%>" alt="employee">
+    <p> Title: <%=employee.position%> </p>
+    <p> Age: <%=employee.age%> </p>
+</div>
+    <div class="options">
+        <button>
+            <a href="/employees/<%=employee._id%>/edit">Edit Employee</a>
+        </button>
 
     <form method="POST"
-        action="/employees/<%= employee._id %>?_method=DELETE">
-        <input type="submit" value="remove employee">
+     action="/employees/<%= employee._id %>?_method=DELETE">
+        <input class='button' type="submit" value="Remove Employee">
     </form>
-</div>
+    </div>
 <%- include ('../partial/footer') %>
