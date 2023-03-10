@@ -3,8 +3,10 @@
 <h1>Current Employees</h1>
 <% for (let i = 0; i < employee.length; i++) { %>
     <div class="card">
+        <a href="/employees/show">
         <p><%=employee[i].name%></p>
         <img src="<%=employee[i].img%>" alt="employee">
+        </a>
         <p><%=employee[i].position%></p>
         <p><%=employee[i].age%></p>
     </div>

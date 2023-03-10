@@ -1,4 +1,24 @@
 <%- include('../partial/header', {styleSheet: '/styles/main.css' }) %>
 <h1>Add an Employee</h1>
-
+<form method='POST' action="/employee/new">
+    <div>
+        <label for="pos">Enter the employee position:</label>
+        <input type="text" name="pos" id="pos">
+    </div>
+    <div>
+        <label for="name">Enter the employee's name</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="img">URL image of employee</label>
+        <input type="text" name="img" id="img">
+    </div>
+    <div>
+        <label for="age">How old is the employee?</label>
+        <input type="text" name="age" id="age">
+    </div>
+    <div>
+        <input type="submit" value="add employee">
+    </div>
+</form>
 <%- include ('../partial/footer') %>
