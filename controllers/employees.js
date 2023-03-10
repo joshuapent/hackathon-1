@@ -4,13 +4,11 @@ const {Employees} = require('../models')
 const employeeSeed = require('../models/seed.js')
 
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
-        const myEmployee = Employees.find({})
-        context = {
-            employee: myEmployee
-        }
-        res.render('employees/index', context);
+        const myEmployee = await Employees.find({})
+        console.log(myEmployee)
+        res.render('employees/index', {employee: myEmployee});
     } catch (err) {
         console.log(err);
         return next();
@@ -21,7 +19,8 @@ router.get('/seed', async (req, res, next) => {
     try {
         const removeAll = await Employees.deleteMany({});
         const seedAll = await Employees.insertMany(employeeSeed);
-        res.redirect('/')
+        console.log(employeeSeed)
+        res.redirect('/employees')
     } catch (err) {
         console.log(err);
         return next();

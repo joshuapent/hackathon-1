@@ -1,4 +1,4 @@
-module.export = [
+module.exports = [
     {
         name: 'josh',
         img: 'https://people.com/thmb/jrk_2jtYP2Y6Ttc8EZG6hO6a7ko=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(794x199:796x201)/chris-hemsworth-thor-love-and-thunder-071522-921f4c475e6041e18366fb83e0dcb010.jpg',
