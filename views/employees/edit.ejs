@@ -1,6 +1,6 @@
 <%- include('../partial/header', {styleSheet: '/styles/main.css' }) %>
     <h1>edit <%=employee.name%></h1>
-    <form method='POST' action="/employee/<%=employee._id%>?_method=PUT">
+    <form method='POST' action="/employees/<%=employee._id%>?_method=PUT">
         <div>
             <label for="pos">update the employee position:</label>
             <input type="text" name="pos" id="pos">
