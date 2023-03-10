@@ -36,22 +36,56 @@ router.get('/add', (req, res, next) => {
     }  
 })
 
-router.get('/edit', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try {
-        res.render('employees/edit')
+        const employeeShow = await Employees.findById(req.params.id);
+        res.render('employees/show', {employee: employeeShow});
     } catch (err) {
         console.log(err);
         return next();
     }  
 })
 
-router.get('/:id', (req, res, next) => {
+
+
+router.get('/:id/edit',  async (req, res, next) => {
     try {
-        res.render('employees/show');
+        const employeeEdit = await Employees.findById(req.params.id);
+        res.render('employees/edit', {employee: employeeEdit});
     } catch (err) {
         console.log(err);
         return next();
-    }  
+    }
+})
+
+router.post('/addEmployee', async(req, res, next) => {
+    try {
+        const newEmployee = await Employees.create(req.body);
+        res.redirect('/employees');
+    } catch (err) {
+        console.log(err);
+        return next();
+    }
+})
+
+router.put('/:id', async (req, res, next) => {
+    try {
+        const updateEmployee = await Employees.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect(`/employees/${req.params.id}`);
+    } catch (err) {
+        console.log(err); 
+        return next();
+    }
+})
+
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const deleteEmployee = await Employees.findByIdAndDelete(req.params.id)
+        res.redirect('/employees')
+    } catch (err) {
+        console.log(err);
+        return next();
+    }
 })
 
 module.exports = router;
